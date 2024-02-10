@@ -1,0 +1,16 @@
+PODS:
+  - root_ios (0.0.1)
+
+DEPENDENCIES:
+  - root_ios (from `../common/root-ios`)
+
+EXTERNAL SOURCES:
+  root_ios:
+    :path: "../common/root-ios"
+
+SPEC CHECKSUMS:
+  root_ios: 4e5379c3ab4f34605d2cce2891fc99d6a8f56609
+
+PODFILE CHECKSUM: 327edca23cd10199723b90394349cbb7d37e17fb
+
+COCOAPODS: 1.11.3
