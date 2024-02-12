@@ -1,5 +1,6 @@
 package ktor
 
+import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -8,7 +9,7 @@ import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 
 internal val ktorModule = module {
-    single {
+    single<HttpClient> {
         HttpClientFactory().createHttpClient {
             install(ContentNegotiation){
                 json(Json{
@@ -21,7 +22,7 @@ internal val ktorModule = module {
                 requestTimeoutMillis = 30000
             }
             defaultRequest {
-                url("http://192.168.0.100:8080")
+                url("http://10.0.33.119:8080")
             }
         }
     }

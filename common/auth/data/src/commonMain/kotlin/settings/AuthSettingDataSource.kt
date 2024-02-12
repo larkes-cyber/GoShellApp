@@ -1,10 +1,11 @@
 package settings
 
-import token.TokenDTO
+import models.TokenDTO
+
 
 interface AuthSettingDataSource {
 
-    suspend fun putToken(token:TokenDTO)
+    suspend fun putToken(token: TokenDTO)
     suspend fun fetchToken():TokenDTO?
 
 }

@@ -1,14 +1,14 @@
 import ktor.AuthKtorDataSource
 import models.LoginRequest
 import models.RegistrationRequest
+import models.TokenDTO
 import settings.AuthSettingDataSource
-import token.TokenDTO
 
 class AuthRepositoryImpl(
     private val authKtorDataSource: AuthKtorDataSource,
     private val authSettingDataSource: AuthSettingDataSource
 ):AuthRepository {
-    override suspend fun performLogin(login: String, password: String):TokenDTO {
+    override suspend fun performLogin(login: String, password: String): TokenDTO {
         val token = authKtorDataSource.sendLogin(LoginRequest(
             login = login,
             password = password

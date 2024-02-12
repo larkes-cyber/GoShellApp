@@ -3,7 +3,7 @@ package settings
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.get
 import kotlinx.serialization.json.Json
-import token.TokenDTO
+import models.TokenDTO
 
 class AuthSettingDataSourceImpl(
     private val settings:Settings

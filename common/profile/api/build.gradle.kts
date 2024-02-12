@@ -1,7 +1,10 @@
 plugins{
+
     id("multiplatform")
     kotlin("multiplatform")
     kotlin("plugin.serialization")
+
+
 }
 
 kotlin{
@@ -10,7 +13,8 @@ kotlin{
 
         commonMain{
             dependencies{
-                api(project(":common:core"))
+                implementation(project(":common:auth:api"))
+                implementation(project(":common:core"))
             }
         }
 
@@ -18,6 +22,8 @@ kotlin{
 
 }
 
+
 android{
-    namespace = "com.larkes.myshell.common.auth.api"
+    namespace = "com.larkes.myshell.common.profile.api"
 }
+

@@ -3,7 +3,7 @@ package navigation
 object NavigationTree {
 
     enum class Auth{
-        AuthFlow, Login
+        AuthFlow, Login, Registration
     }
 
     enum class Splash{
