@@ -16,7 +16,8 @@ kotlin{
             transitiveExport = false
             baseName = "SharedSDK"
             export(project(":common:core"))
-
+            export(project(":common:root-core"))
+            export(project(":common:auth:presentation"))
         }
 
         sourceSets{
@@ -24,12 +25,16 @@ kotlin{
             commonMain{
                 dependencies{
                     implementation(project(":common:core"))
+                    implementation(project(":common:root-core"))
+                    implementation(project(":common:auth:presentation"))
                 }
             }
 
             iosMain{
                 dependencies{
                     api(project(":common:core"))
+                    api(project(":common:root-core"))
+                    api(project(":common:auth:presentation"))
                 }
             }
 

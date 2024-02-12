@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,12 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		D29D7C483F6280B95620ED9C /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4073C01D028953567C51 /* Pods_iosApp.framework */; };
+		FA48B1222B7A13F900881E05 /* ViewModel + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1212B7A13F900881E05 /* ViewModel + View.swift */; };
+		FA48B1242B7A141A00881E05 /* Flow + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1232B7A141A00881E05 /* Flow + Publisher.swift */; };
+		FA48B1282B7A147400881E05 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1272B7A147400881E05 /* LoginScreen.swift */; };
+		FA48B12A2B7A148E00881E05 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1292B7A148E00881E05 /* LoginView.swift */; };
+		FA48B12C2B7A15C100881E05 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B12B2B7A15C100881E05 /* RegisterScreen.swift */; };
+		FA48B12E2B7A15D000881E05 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B12D2B7A15D000881E05 /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9D98E33533B0EE530063B6D /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
+		FA48B1212B7A13F900881E05 /* ViewModel + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel + View.swift"; sourceTree = "<group>"; };
+		FA48B1232B7A141A00881E05 /* Flow + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flow + Publisher.swift"; sourceTree = "<group>"; };
+		FA48B1272B7A147400881E05 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		FA48B1292B7A148E00881E05 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA48B12B2B7A15C100881E05 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		FA48B12D2B7A15D000881E05 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +72,6 @@
 				0D084165271484AC2003846D /* Pods-iosApp.debug.xcconfig */,
 				E9D98E33533B0EE530063B6D /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +96,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA48B1202B7A13CE00881E05 /* Utils */,
+				FA48B11F2B7A13A700881E05 /* Screens */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -92,6 +105,42 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		FA48B11F2B7A13A700881E05 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B1262B7A144F00881E05 /* Register */,
+				FA48B1252B7A144000881E05 /* Login */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FA48B1202B7A13CE00881E05 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B1212B7A13F900881E05 /* ViewModel + View.swift */,
+				FA48B1232B7A141A00881E05 /* Flow + Publisher.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FA48B1252B7A144000881E05 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B1272B7A147400881E05 /* LoginScreen.swift */,
+				FA48B1292B7A148E00881E05 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA48B1262B7A144F00881E05 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B12B2B7A15C100881E05 /* RegisterScreen.swift */,
+				FA48B12D2B7A15D000881E05 /* RegisterView.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +257,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA48B12A2B7A148E00881E05 /* LoginView.swift in Sources */,
+				FA48B1222B7A13F900881E05 /* ViewModel + View.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				FA48B12C2B7A15C100881E05 /* RegisterScreen.swift in Sources */,
+				FA48B1242B7A141A00881E05 /* Flow + Publisher.swift in Sources */,
+				FA48B12E2B7A15D000881E05 /* RegisterView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				FA48B1282B7A147400881E05 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
