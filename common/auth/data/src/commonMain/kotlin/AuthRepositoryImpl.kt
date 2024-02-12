@@ -30,4 +30,10 @@ class AuthRepositoryImpl(
     override suspend fun fetchToken(): TokenDTO? {
         return authSettingDataSource.fetchToken()
     }
+
+    override suspend fun refreshToken() {
+        val userData = authSettingDataSource.fetchUserData() ?: return
+        val token = performLogin(login = userData.login, password = userData.password)
+        authSettingDataSource.putToken(token)
+    }
 }

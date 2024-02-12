@@ -28,11 +28,11 @@ fun LoginScreen() {
             }
 
             is LoginAction.OpenMainFlow -> {
-//                rootController.findRootController()
-//                    .present(
-//                        screen = NavigationTree.Main.Dashboard.name,
-//                        launchFlag = LaunchFlag.SingleNewTask
-//                    )
+                rootController.findRootController()
+                    .present(
+                        screen = NavigationTree.Main.Dashboard.name,
+                        launchFlag = LaunchFlag.SingleNewTask
+                    )
             }
 
             else -> {}

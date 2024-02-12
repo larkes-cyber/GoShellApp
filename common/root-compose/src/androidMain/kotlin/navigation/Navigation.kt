@@ -9,4 +9,5 @@ fun RootComposeBuilder.generateGraph(){
         SplashScreen()
     }
     authFlow()
+    mainFlow()
 }

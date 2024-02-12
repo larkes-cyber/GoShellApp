@@ -9,8 +9,10 @@ import login.models.LoginAction
 import navigation.NavigationTree
 import registration.RegisterViewModel
 import registration.models.RegisterAction
+import ru.alexgladkov.odyssey.compose.extensions.present
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
+import ru.alexgladkov.odyssey.core.LaunchFlag
 
 @Composable
 fun RegisterScreen() {
@@ -30,11 +32,11 @@ fun RegisterScreen() {
             }
 
             is RegisterAction.OpenMainFlow -> {
-//                rootController.findRootController()
-//                    .present(
-//                        screen = NavigationTree.Main.Dashboard.name,
-//                        launchFlag = LaunchFlag.SingleNewTask
-//                    )
+                rootController.findRootController()
+                    .present(
+                        screen = NavigationTree.Main.Dashboard.name,
+                        launchFlag = LaunchFlag.SingleNewTask
+                    )
             }
 
             else -> {}

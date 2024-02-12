@@ -10,4 +10,10 @@ object NavigationTree {
         SplashScreen
     }
 
+    enum class Main{
+
+       Dashboard, Home
+
+    }
+
 }

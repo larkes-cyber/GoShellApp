@@ -26,6 +26,8 @@ kotlin{
                 implementation(Dependencies.Android.composeActivity)
                 implementation(project(":common:core-utils"))
                 implementation(project(":common:auth:compose"))
+                implementation(project(":common:main:compose"))
+
             }
 
         }
