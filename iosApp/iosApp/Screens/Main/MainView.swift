@@ -15,6 +15,10 @@ struct MainView: View {
                 .tabItem{
                     Label("Home", systemImage: "house")
                 }
+            RoomsScreen()
+                .tabItem{
+                    Label("Rooms", systemImage: "house")
+                }
         }
     }
 }
