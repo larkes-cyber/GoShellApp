@@ -18,6 +18,7 @@ kotlin{
             export(project(":common:core"))
             export(project(":common:root-core"))
             export(project(":common:auth:presentation"))
+            export(project(":common:main:presentation"))
         }
 
         sourceSets{
@@ -27,6 +28,7 @@ kotlin{
                     implementation(project(":common:core"))
                     implementation(project(":common:root-core"))
                     implementation(project(":common:auth:presentation"))
+                    implementation(project(":common:main:presentation"))
                 }
             }
 
@@ -35,6 +37,7 @@ kotlin{
                     api(project(":common:core"))
                     api(project(":common:root-core"))
                     api(project(":common:auth:presentation"))
+                    api(project(":common:main:presentation"))
                 }
             }
 

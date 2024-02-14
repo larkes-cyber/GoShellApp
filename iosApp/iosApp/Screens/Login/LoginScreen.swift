@@ -12,6 +12,7 @@ import SharedSDK
 struct LoginScreen: View {
     
     @State var isRegistrationPresented = false
+    @State var isMainPresented = false
     
     private let viewModel = LoginViewModel()
 
@@ -26,10 +27,15 @@ struct LoginScreen: View {
         .sheet(isPresented: $isRegistrationPresented, content: {
             RegisterScreen()
         })
+        .fullScreenCover(isPresented: $isMainPresented){
+            MainView()
+        }
         .onReceive(sharePublisher(viewModel.viewActions())){ action in
             switch(action){
                 case LoginAction.OpenRegistrationScreen():
                     isRegistrationPresented = true
+                case LoginAction.OpenMainFlow():
+                    isMainPresented = true
                 default:
                     break
             }
