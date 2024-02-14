@@ -17,7 +17,11 @@ struct MainView: View {
                 }
             RoomsScreen()
                 .tabItem{
-                    Label("Rooms", systemImage: "house")
+                    Label("Rooms", systemImage: "room")
+                }
+            ProfileScreen()
+                .tabItem{
+                    Label("Profile", systemImage: "profile")
                 }
         }
     }

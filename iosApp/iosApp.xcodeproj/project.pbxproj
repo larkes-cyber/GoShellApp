@@ -24,6 +24,8 @@
 		FA48B1392B7CBD8700881E05 /* RoomsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1382B7CBD8700881E05 /* RoomsScreen.swift */; };
 		FA48B13B2B7CBD9700881E05 /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B13A2B7CBD9700881E05 /* RoomsView.swift */; };
 		FA48B13E2B7CBF5900881E05 /* RoomDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B13D2B7CBF5900881E05 /* RoomDetailScreen.swift */; };
+		FA48B1412B7CCCFE00881E05 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1402B7CCCFE00881E05 /* ProfileScreen.swift */; };
+		FA48B1432B7CCD0900881E05 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1422B7CCD0900881E05 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		FA48B1382B7CBD8700881E05 /* RoomsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsScreen.swift; sourceTree = "<group>"; };
 		FA48B13A2B7CBD9700881E05 /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		FA48B13D2B7CBF5900881E05 /* RoomDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailScreen.swift; sourceTree = "<group>"; };
+		FA48B1402B7CCCFE00881E05 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		FA48B1422B7CCD0900881E05 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 		FA48B11F2B7A13A700881E05 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA48B13F2B7CCCE900881E05 /* Profile */,
 				FA48B13C2B7CBF2000881E05 /* RoomDetail */,
 				FA48B1372B7CBD6D00881E05 /* Rooms */,
 				FA48B1322B7CABF600881E05 /* Home */,
@@ -191,6 +196,15 @@
 				FA48B13D2B7CBF5900881E05 /* RoomDetailScreen.swift */,
 			);
 			path = RoomDetail;
+			sourceTree = "<group>";
+		};
+		FA48B13F2B7CCCE900881E05 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B1402B7CCCFE00881E05 /* ProfileScreen.swift */,
+				FA48B1422B7CCD0900881E05 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,9 +325,11 @@
 				FA48B13E2B7CBF5900881E05 /* RoomDetailScreen.swift in Sources */,
 				FA48B1312B7CABDE00881E05 /* MainView.swift in Sources */,
 				FA48B1222B7A13F900881E05 /* ViewModel + View.swift in Sources */,
+				FA48B1412B7CCCFE00881E05 /* ProfileScreen.swift in Sources */,
 				FA48B13B2B7CBD9700881E05 /* RoomsView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				FA48B12C2B7A15C100881E05 /* RegisterScreen.swift in Sources */,
+				FA48B1432B7CCD0900881E05 /* ProfileView.swift in Sources */,
 				FA48B1362B7CAC0F00881E05 /* HomeView.swift in Sources */,
 				FA48B1242B7A141A00881E05 /* Flow + Publisher.swift in Sources */,
 				FA48B1342B7CAC0500881E05 /* HomeScreen.swift in Sources */,
