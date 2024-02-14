@@ -12,7 +12,7 @@ object NavigationTree {
 
     enum class Main{
 
-       Dashboard, Home, Rooms, RoomDetail
+       Dashboard, Home, Rooms, RoomDetail, Profile
 
     }
 

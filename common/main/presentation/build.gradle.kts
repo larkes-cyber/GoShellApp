@@ -11,6 +11,7 @@ kotlin{
 
                 implementation(project(":common:device:api"))
                 implementation(project(":common:room:api"))
+                implementation(project(":common:profile:api"))
                 implementation(Dependencies.Other.ViewModel.core)
 
             }

@@ -14,6 +14,7 @@ object PlatformSDK {
             modules(authModule)
             modules(deviceModule)
             modules(roomModule)
+            modules(profileModule)
         }.koin
         Inject.createDependencies(diTree)
     }
