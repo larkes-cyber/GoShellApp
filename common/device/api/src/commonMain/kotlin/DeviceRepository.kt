@@ -8,4 +8,5 @@ interface DeviceRepository {
     suspend fun addRoomDevice(roomDevice: RoomDevice)
     suspend fun switchDeviceActive(deviceId:String)
     suspend fun fetchHomeDevices():List<HomeDevices>
+    suspend fun switchDevicesActive(typeId:String)
 }

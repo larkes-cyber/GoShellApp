@@ -47,6 +47,14 @@ class DeviceRepositoryImpl(
 
     override suspend fun fetchHomeDevices(): List<HomeDevices> {
         val token = authRepository.fetchToken() ?: return emptyList()
-        return deviceKtorDataSource.fetchHomeDevices(token)
+        return deviceKtorDataSource.fetchHomeDevices(token).devices
+    }
+
+    override suspend fun switchDevicesActive(typeId: String) {
+        val token = authRepository.fetchToken() ?: return
+        deviceKtorDataSource.switchDevicesActive(DeviceActiveRequest(
+            token = token,
+            id = typeId
+        ))
     }
 }

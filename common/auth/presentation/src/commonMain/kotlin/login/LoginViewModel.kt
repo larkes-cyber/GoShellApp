@@ -14,6 +14,17 @@ class LoginViewModel:BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent
 
     private val authRepository:AuthRepository = Inject.di.get()
 
+    init {
+        viewModelScope.launch {
+            val token = authRepository.fetchToken()
+            if(token != null){
+                authRepository.refreshToken()
+                viewAction = LoginAction.OpenMainFlow
+            }
+        }
+
+    }
+
     override fun obtainEvent(viewEvent: LoginEvent) {
         when(viewEvent){
 

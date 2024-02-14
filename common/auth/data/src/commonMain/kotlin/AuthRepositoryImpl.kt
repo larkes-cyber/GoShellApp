@@ -2,6 +2,7 @@ import ktor.AuthKtorDataSource
 import models.LoginRequest
 import models.RegistrationRequest
 import models.TokenDTO
+import models.UserData
 import settings.AuthSettingDataSource
 
 class AuthRepositoryImpl(
@@ -14,6 +15,10 @@ class AuthRepositoryImpl(
             password = password
         ))
         authSettingDataSource.putToken(token)
+        authSettingDataSource.putUserData(UserData(
+            login = login,
+            password = password
+        ))
         return token
     }
 
@@ -32,6 +37,7 @@ class AuthRepositoryImpl(
     }
 
     override suspend fun refreshToken() {
+        println(authSettingDataSource.fetchUserData().toString())
         val userData = authSettingDataSource.fetchUserData() ?: return
         val token = performLogin(login = userData.login, password = userData.password)
         authSettingDataSource.putToken(token)

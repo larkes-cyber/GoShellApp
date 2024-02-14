@@ -12,6 +12,7 @@ import io.ktor.http.path
 import models.AddRoomDeviceRequest
 import models.Device
 import models.DeviceActiveRequest
+import models.DeviceResponse
 import models.GetRoomDevicesRequest
 import models.HomeDevices
 import models.RoomDevice
@@ -78,7 +79,7 @@ class DeviceKtorDataSourceImpl(
         }
     }
 
-    override suspend fun fetchHomeDevices(tokenDTO: TokenDTO): List<HomeDevices> {
+    override suspend fun fetchHomeDevices(tokenDTO: TokenDTO): DeviceResponse<HomeDevices> {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
@@ -91,5 +92,19 @@ class DeviceKtorDataSourceImpl(
             throw Exception(error)
         }
         return response.body()
+    }
+
+    override suspend fun switchDevicesActive(deviceActiveRequest: DeviceActiveRequest) {
+        val response = httpClient.post{
+            contentType(ContentType.Application.Json)
+            url {
+                path(DeviceKtorDataSource.SWITCH_DEVICES_ACTIVE)
+                setBody(deviceActiveRequest)
+            }
+        }
+        if(response.status.isSuccess().not()){
+            val error = response.bodyAsText()
+            throw Exception(error)
+        }
     }
 }

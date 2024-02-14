@@ -14,11 +14,7 @@ class HomeViewModel:BaseSharedViewModel<HomeViewState, HomeAction, HomeEvent>(
 
     private val deviceRepository:DeviceRepository = Inject.di.get()
     init {
-        viewModelScope.launch {
-            viewState = viewState.copy(
-                homeDevices = deviceRepository.fetchHomeDevices()
-            )
-        }
+        fetchHomeDevices()
     }
     override fun obtainEvent(viewEvent: HomeEvent) {
         when(viewEvent){
@@ -31,10 +27,21 @@ class HomeViewModel:BaseSharedViewModel<HomeViewState, HomeAction, HomeEvent>(
     }
 
     private fun switchDevicesActive(id:String) {
-        viewState.homeDevices.forEach {
-            if(it.typeId == id){
+        viewModelScope.launch {
+            deviceRepository.switchDevicesActive(id)
+        }
+    }
 
+    private fun fetchHomeDevices(){
+        viewModelScope.launch {
+            try {
+                viewState = viewState.copy(
+                    homeDevices = deviceRepository.fetchHomeDevices()
+                )
+            }catch (e:Exception){
+                println(e.toString())
             }
         }
+
     }
 }
