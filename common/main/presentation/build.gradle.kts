@@ -10,6 +10,7 @@ kotlin{
             dependencies{
 
                 implementation(project(":common:device:api"))
+                implementation(project(":common:room:api"))
                 implementation(Dependencies.Other.ViewModel.core)
 
             }

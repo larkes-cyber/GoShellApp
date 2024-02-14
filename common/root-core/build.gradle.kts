@@ -11,6 +11,7 @@ kotlin{
                 implementation(project(":common:core"))
                 implementation(project(":common:auth:data"))
                 implementation(project(":common:device:data"))
+                implementation(project(":common:room:data"))
             }
         }
     }

@@ -7,5 +7,5 @@ import home.models.HomeViewState
 
 @Composable
 fun HomeView(state: HomeViewState, eventHandler: (HomeEvent) -> Unit) {
-    Text("fxgsdfg")
+    Text("home")
 }
