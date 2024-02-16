@@ -18,8 +18,9 @@ internal val ktorModule = module {
                 })
             }
             install(HttpTimeout){
-                connectTimeoutMillis = 15000
-                requestTimeoutMillis = 30000
+                connectTimeoutMillis = 1500000
+                requestTimeoutMillis = 3000000
+                requestTimeoutMillis = 1000000
             }
             defaultRequest {
                 url("http://10.0.33.119:8080")

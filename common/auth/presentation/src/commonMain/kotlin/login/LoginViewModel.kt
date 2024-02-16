@@ -18,8 +18,12 @@ class LoginViewModel:BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent
         viewModelScope.launch {
             val token = authRepository.fetchToken()
             if(token != null){
-                authRepository.refreshToken()
-                viewAction = LoginAction.OpenMainFlow
+                try {
+                    authRepository.refreshToken()
+                    viewAction = LoginAction.OpenMainFlow
+                }catch (e:Exception){
+                    println(e)
+                }
             }
         }
 

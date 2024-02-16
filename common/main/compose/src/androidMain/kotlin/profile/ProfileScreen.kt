@@ -1,21 +1,17 @@
-package home
+package profile
 
 import androidx.compose.runtime.Composable
 import com.adeo.kviewmodel.compose.observeAsState
 import com.adeo.kviewmodel.odyssey.StoredViewModel
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
 
 @Composable
-fun HomeScreen() {
+fun ProfileScreen() {
 
-    val rootController = LocalRootController.current
-
-    StoredViewModel(factory = {HomeViewModel()}){viewModel ->
+    StoredViewModel(factory = { ProfileViewModel() }){ viewModel ->
         val state = viewModel.viewStates().observeAsState()
         val action = viewModel.viewActions().observeAsState()
-
-        HomeView(state.value){
-            viewModel.obtainEvent(it)
+        ProfileView(viewState = state.value){event ->
+            viewModel.obtainEvent(event)
         }
     }
 

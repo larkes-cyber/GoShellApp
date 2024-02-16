@@ -17,11 +17,11 @@ class RoomRepositoryImpl(
 
     override suspend fun fetchRooms(): List<Room> {
         val token = authRepository.fetchToken() ?: return emptyList()
-        return roomKtorDataSource.fetchRooms(token).rooms
+        return roomKtorDataSource.fetchRooms(token).list
     }
 
     override suspend fun fetchRoomPhotos(): List<String> {
         val token = authRepository.fetchToken() ?: return emptyList()
-        return roomKtorDataSource.fetchPhotos(token).rooms
+        return roomKtorDataSource.fetchPhotos(token).list
     }
 }

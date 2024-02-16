@@ -5,6 +5,7 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:name=".GoShellApp"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"

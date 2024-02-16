@@ -20,6 +20,15 @@ kotlin{
             }
         }
 
+        androidMain{
+            dependencies{
+
+                implementation(Dependencies.Android.Image.core)
+                implementation(Dependencies.Android.Image.compose)
+
+            }
+        }
+
     }
 
 }

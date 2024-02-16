@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RoomResponse<T>(
-    val rooms:List<T>
+    val list:List<T>
 )
