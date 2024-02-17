@@ -1,4 +1,4 @@
-package add_room.models
+package modal.add_room.models
 
 sealed class AddRoomAction {
 

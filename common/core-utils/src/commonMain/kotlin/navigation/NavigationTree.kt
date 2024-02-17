@@ -16,4 +16,8 @@ object NavigationTree {
 
     }
 
+    enum class Room{
+        RoomFlow, Rooms, RoomDetail
+    }
+
 }

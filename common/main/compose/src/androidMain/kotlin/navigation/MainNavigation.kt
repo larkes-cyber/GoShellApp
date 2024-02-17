@@ -2,12 +2,11 @@ package navigation
 
 import home.HomeScreen
 import profile.ProfileScreen
-import rooms.RoomsScreen
 import ru.alexgladkov.odyssey.compose.extensions.bottomNavigation
-import ru.alexgladkov.odyssey.compose.extensions.flow
 import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.extensions.tab
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
+import rooms.RoomsScreen
 import tabs.BottomConfiguration
 import tabs.HomeTab
 import tabs.ProfileTab

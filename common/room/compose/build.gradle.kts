@@ -8,8 +8,7 @@ kotlin{
 
         commonMain{
             dependencies{
-                api(project(":common:main:presentation"))
-                implementation(project(":common:room:compose"))
+                implementation(project(":common:room:presentation"))
                 implementation(project(":common:compose-utils"))
                 implementation(project(":common:core-utils"))
                 implementation(Dependencies.Other.ViewModel.core)
@@ -22,12 +21,12 @@ kotlin{
         }
 
         androidMain{
-            dependencies{
 
+            dependencies{
                 implementation(Dependencies.Android.Image.core)
                 implementation(Dependencies.Android.Image.compose)
-
             }
+
         }
 
     }
@@ -35,5 +34,5 @@ kotlin{
 }
 
 android{
-    namespace = "com.larkes.goshell.common.main.compose"
+    namespace = "com.larkes.goshell.common.room.compose"
 }

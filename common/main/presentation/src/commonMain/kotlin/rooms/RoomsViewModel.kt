@@ -2,7 +2,6 @@ package rooms
 
 import DeviceRepository
 import RoomRepository
-import add_room.models.AddRoomAction
 import com.adeo.kviewmodel.BaseSharedViewModel
 import di.Inject
 import kotlinx.coroutines.launch

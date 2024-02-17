@@ -1,18 +1,17 @@
-package add_room
+package modal.add_room
 
-import add_room.models.AddRoomAction
-import add_room.views.DoneView
-import add_room.views.RoomNameView
-import add_room.views.SelectDevicesView
-import add_room.views.SelectImageView
 import androidx.compose.runtime.Composable
 import com.adeo.kviewmodel.compose.observeAsState
 import com.adeo.kviewmodel.odyssey.StoredViewModel
+import modal.add_room.models.AddRoomAction
+import modal.add_room.view.DoneView
+import modal.add_room.view.RoomNameView
+import modal.add_room.view.SelectDevicesView
+import modal.add_room.view.SelectImageView
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
 
 @Composable
-fun AddRoomScreen(onCloseClick: () -> Unit) {
-
+fun AddRoomModal(onCloseClick:() -> Unit) {
     val rootController = LocalRootController.current
 
     StoredViewModel(factory = { AddRoomViewModel() }){ viewModel ->
@@ -55,5 +54,4 @@ fun AddRoomScreen(onCloseClick: () -> Unit) {
         }
 
     }
-
 }

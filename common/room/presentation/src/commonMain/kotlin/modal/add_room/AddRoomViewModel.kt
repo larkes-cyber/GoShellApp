@@ -1,16 +1,16 @@
-package add_room
+package modal.add_room
 
 import DeviceRepository
 import RoomRepository
-import add_room.models.AddRoomAction
-import add_room.models.AddRoomEvent
-import add_room.models.AddRoomViewState
 import com.adeo.kviewmodel.BaseSharedViewModel
 import di.Inject
 import kotlinx.coroutines.launch
+import modal.add_room.models.AddRoomAction
+import modal.add_room.models.AddRoomEvent
+import modal.add_room.models.AddRoomViewState
 import models.Device
 
-class AddRoomViewModel:BaseSharedViewModel<AddRoomViewState, AddRoomAction, AddRoomEvent>(
+class AddRoomViewModel: BaseSharedViewModel<AddRoomViewState, AddRoomAction, AddRoomEvent>(
     initialState = AddRoomViewState()
 ) {
 
@@ -87,7 +87,7 @@ class AddRoomViewModel:BaseSharedViewModel<AddRoomViewState, AddRoomAction, AddR
         viewState = viewState.copy(selectedImage = image)
     }
 
-    private fun obtainDevice(device:Device) {
+    private fun obtainDevice(device: Device) {
 
         val devices = viewState.selectedDevices.toMutableList()
         devices.add(device)

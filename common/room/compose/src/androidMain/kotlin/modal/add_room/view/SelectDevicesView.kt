@@ -1,7 +1,6 @@
-package add_room.views
+package modal.add_room.view
 
-import add_room.models.AddRoomEvent
-import add_room.models.AddRoomViewState
+
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +19,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
+import modal.add_room.models.AddRoomEvent
+import modal.add_room.models.AddRoomViewState
 
 @Composable
 fun SelectDevicesView(viewState: AddRoomViewState, viewEvent:(AddRoomEvent) -> Unit) {
