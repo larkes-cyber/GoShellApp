@@ -33,6 +33,8 @@ fun RoomsView(
 ) {
 
 
+    println(state.rooms)
+
     Column {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,

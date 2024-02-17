@@ -9,6 +9,7 @@ import modal.add_room.models.AddRoomAction
 import modal.add_room.models.AddRoomEvent
 import modal.add_room.models.AddRoomViewState
 import models.Device
+import models.RoomDevice
 
 class AddRoomViewModel: BaseSharedViewModel<AddRoomViewState, AddRoomAction, AddRoomEvent>(
     initialState = AddRoomViewState()
@@ -72,7 +73,20 @@ class AddRoomViewModel: BaseSharedViewModel<AddRoomViewState, AddRoomAction, Add
                 }
             }
             AddRoomAction.OpenSelectDevices -> {
-                viewAction = AddRoomAction.OpenDone
+                viewModelScope.launch {
+                    try {
+                        val roomId = roomRepository.addRoom(name = viewState.name, photo = viewState.selectedImage)
+                        viewState.selectedDevices.forEach { device ->
+                            deviceRepository.addRoomDevice(RoomDevice(
+                                typeId = device.id,
+                                roomId = roomId!!
+                            ))
+                        }
+                        viewAction = AddRoomAction.OpenDone
+                    }catch (e:Exception){
+
+                    }
+                }
             }
 
             AddRoomAction.OpenDone -> {
@@ -90,7 +104,8 @@ class AddRoomViewModel: BaseSharedViewModel<AddRoomViewState, AddRoomAction, Add
     private fun obtainDevice(device: Device) {
 
         val devices = viewState.selectedDevices.toMutableList()
-        devices.add(device)
+        if(devices.contains(device)) devices.remove(device)
+        else devices.add(device)
         viewState = viewState.copy(selectedDevices = devices)
 
     }

@@ -35,7 +35,6 @@ fun RoomsScreen() {
                 modalController.present(modalSheetConfiguration){key ->
                     AddRoomModal{
                         modalController.popBackStack(key)
-
                     }
                 }
             }

@@ -60,9 +60,8 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
                         )
                     }
                 viewState = viewState.copy(rooms = rooms)
-
             }catch (e:Exception){
-
+                println(e)
             }
             finally {
                 viewState = viewState.copy(isLoading = false)

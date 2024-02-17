@@ -12,7 +12,6 @@ import ru.alexgladkov.odyssey.compose.local.LocalRootController
 
 @Composable
 fun AddRoomModal(onCloseClick:() -> Unit) {
-    val rootController = LocalRootController.current
 
     StoredViewModel(factory = { AddRoomViewModel() }){ viewModel ->
         val state = viewModel.viewStates().observeAsState()
