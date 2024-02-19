@@ -26,6 +26,11 @@
 		FA48B13E2B7CBF5900881E05 /* RoomDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B13D2B7CBF5900881E05 /* RoomDetailScreen.swift */; };
 		FA48B1412B7CCCFE00881E05 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1402B7CCCFE00881E05 /* ProfileScreen.swift */; };
 		FA48B1432B7CCD0900881E05 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1422B7CCD0900881E05 /* ProfileView.swift */; };
+		FA48B1462B83915D00881E05 /* AddRoomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1452B83915D00881E05 /* AddRoomModal.swift */; };
+		FA48B14B2B8393E000881E05 /* RoomNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B14A2B8393E000881E05 /* RoomNameView.swift */; };
+		FA48B14D2B8393FC00881E05 /* SelectDevicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B14C2B8393FC00881E05 /* SelectDevicesView.swift */; };
+		FA48B14F2B83941400881E05 /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B14E2B83941400881E05 /* SelectImageView.swift */; };
+		FA48B1512B83944700881E05 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48B1502B83944700881E05 /* DoneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		FA48B13D2B7CBF5900881E05 /* RoomDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailScreen.swift; sourceTree = "<group>"; };
 		FA48B1402B7CCCFE00881E05 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		FA48B1422B7CCD0900881E05 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FA48B1452B83915D00881E05 /* AddRoomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomModal.swift; sourceTree = "<group>"; };
+		FA48B14A2B8393E000881E05 /* RoomNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomNameView.swift; sourceTree = "<group>"; };
+		FA48B14C2B8393FC00881E05 /* SelectDevicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDevicesView.swift; sourceTree = "<group>"; };
+		FA48B14E2B83941400881E05 /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
+		FA48B1502B83944700881E05 /* DoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +136,7 @@
 		FA48B11F2B7A13A700881E05 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FA48B1442B83914C00881E05 /* AddRoom */,
 				FA48B13F2B7CCCE900881E05 /* Profile */,
 				FA48B13C2B7CBF2000881E05 /* RoomDetail */,
 				FA48B1372B7CBD6D00881E05 /* Rooms */,
@@ -205,6 +216,26 @@
 				FA48B1422B7CCD0900881E05 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FA48B1442B83914C00881E05 /* AddRoom */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B1472B83916200881E05 /* views */,
+				FA48B1452B83915D00881E05 /* AddRoomModal.swift */,
+			);
+			path = AddRoom;
+			sourceTree = "<group>";
+		};
+		FA48B1472B83916200881E05 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				FA48B14A2B8393E000881E05 /* RoomNameView.swift */,
+				FA48B14C2B8393FC00881E05 /* SelectDevicesView.swift */,
+				FA48B14E2B83941400881E05 /* SelectImageView.swift */,
+				FA48B1502B83944700881E05 /* DoneView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +364,15 @@
 				FA48B1362B7CAC0F00881E05 /* HomeView.swift in Sources */,
 				FA48B1242B7A141A00881E05 /* Flow + Publisher.swift in Sources */,
 				FA48B1342B7CAC0500881E05 /* HomeScreen.swift in Sources */,
+				FA48B1462B83915D00881E05 /* AddRoomModal.swift in Sources */,
 				FA48B1392B7CBD8700881E05 /* RoomsScreen.swift in Sources */,
+				FA48B14B2B8393E000881E05 /* RoomNameView.swift in Sources */,
 				FA48B12E2B7A15D000881E05 /* RegisterView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				FA48B1512B83944700881E05 /* DoneView.swift in Sources */,
 				FA48B1282B7A147400881E05 /* LoginScreen.swift in Sources */,
+				FA48B14F2B83941400881E05 /* SelectImageView.swift in Sources */,
+				FA48B14D2B8393FC00881E05 /* SelectDevicesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
