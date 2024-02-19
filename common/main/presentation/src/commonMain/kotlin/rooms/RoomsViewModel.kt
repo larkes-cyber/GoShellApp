@@ -29,10 +29,22 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
             }
 
             RoomEvent.AddRoomClick -> {
+                fetchRooms()
+            }
+
+            RoomEvent.CloseAddRoomModal -> {
+                closeAddRoom()
+            }
+
+            RoomEvent.AddRoomModalClick -> {
                 openAddRoom()
             }
 
         }
+    }
+
+    private fun closeAddRoom(){
+        viewAction = RoomAction.OpenRooms
     }
 
     private fun openAddRoom() {

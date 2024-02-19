@@ -9,7 +9,7 @@ import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 
 internal val ktorModule = module {
-    single<HttpClient> {
+    single {
         HttpClientFactory().createHttpClient {
             install(ContentNegotiation){
                 json(Json{
