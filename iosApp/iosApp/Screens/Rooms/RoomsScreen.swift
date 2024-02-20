@@ -12,6 +12,7 @@ import SharedSDK
 struct RoomsScreen: View {
     
     @State var isRoomDetailPresented = false
+    @State var isAddRoomPresented = false
     
     private let viewModel = RoomsViewModel()
     
@@ -24,10 +25,19 @@ struct RoomsScreen: View {
         .sheet(isPresented: $isRoomDetailPresented, content: {
             RoomDetailScreen()
         })
+        .sheet(isPresented: $isAddRoomPresented, content: {
+            AddRoomModal(){
+                viewModel.obtainEvent(viewEvent: RoomEvent.AddRoomClick())
+                isAddRoomPresented = false
+            }
+            let _ = viewModel.obtainEvent(viewEvent: RoomEvent.CloseAddRoomModal())
+        })
         .onReceive(sharePublisher(viewModel.viewActions())){ action in
             switch(action){
                 case RoomAction.OpenRoomDetail():
                     isRoomDetailPresented = true
+                case RoomAction.OpenAddRoom():
+                    isAddRoomPresented = true
             default:
                 break
             }
