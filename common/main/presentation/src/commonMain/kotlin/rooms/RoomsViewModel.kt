@@ -39,6 +39,9 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
             RoomEvent.AddRoomModalClick -> {
                 openAddRoom()
             }
+            RoomEvent.Refresh -> {
+                fetchRooms(true)
+            }
 
         }
     }

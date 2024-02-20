@@ -37,6 +37,11 @@ object Dependencies {
             const val core = "io.coil-kt:coil:$version"
             const val compose = "io.coil-kt:coil-compose:$version"
         }
+        object Refresh{
+            private const val version = "0.24.13-rc"
+            const val core = "com.google.accompanist:accompanist-swiperefresh:$version"
+        }
+
     }
 
     object SqlDelight{

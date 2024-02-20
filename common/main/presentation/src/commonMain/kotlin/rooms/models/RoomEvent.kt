@@ -5,5 +5,6 @@ sealed class RoomEvent {
     data object AddRoomModalClick:RoomEvent()
     data object CloseAddRoomModal:RoomEvent()
     data object AddRoomClick:RoomEvent()
+    data object Refresh:RoomEvent()
 
 }
