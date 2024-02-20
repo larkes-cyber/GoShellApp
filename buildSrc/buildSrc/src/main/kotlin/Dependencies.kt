@@ -39,6 +39,16 @@ object Dependencies {
         }
     }
 
+    object SqlDelight{
+
+        private const val version = "1.5.5"
+        const val core = "com.squareup.sqldelight:runtime:$version"
+        const val androidDriver = "com.squareup.sqldelight:android-driver:$version"
+        const val iosDriver = "com.squareup.sqldelight:native-driver:$version"
+        const val gradlePlugin = "com.squareup.sqldelight:gradle-plugin:$version"
+
+    }
+
     object Koin{
         private const val version = "3.3.3"
         const val core = "io.insert-koin:koin-core:$version"
