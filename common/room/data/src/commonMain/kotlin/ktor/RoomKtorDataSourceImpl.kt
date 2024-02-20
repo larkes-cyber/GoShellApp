@@ -9,6 +9,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
 import io.ktor.http.path
+import kotlinx.coroutines.delay
 import models.Room
 import models.RoomRequest
 import models.RoomResponse
@@ -33,6 +34,7 @@ class RoomKtorDataSourceImpl(
     }
 
     override suspend fun fetchRooms(tokenDTO: TokenDTO): RoomResponse<Room> {
+        delay(10000)
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {

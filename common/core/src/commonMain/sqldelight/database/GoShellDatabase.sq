@@ -1,0 +1,22 @@
+CREATE TABLE roomEntity(
+    id TEXT NOT NULL PRIMARY KEY,
+    image TEXT NOT NULL,
+    name TEXT NOT NULL,
+    login TEXT NOT NULL
+);
+
+fetchRooms:
+SELECT *
+FROM roomEntity;
+
+insertRoom:
+INSERT OR REPLACE
+INTO roomEntity(
+    id,
+    image,
+    name,
+    login
+)VALUES(?,?,?,?);
+
+removeAllRooms:
+DELETE FROM roomEntity;
