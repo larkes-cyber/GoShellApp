@@ -28,8 +28,10 @@ class RoomRepositoryImpl(
     override suspend fun fetchRooms(forceReload:Boolean): List<Room> {
         val cachedRooms = roomSqlDelightDataSource.fetchRooms()
         return if(cachedRooms.isNotEmpty() && !forceReload){
+            println(cachedRooms)
             cachedRooms
         }else{
+            println("authRepository.fetchToken() cccc ccc")
             val token = authRepository.fetchToken() ?: return emptyList()
             roomKtorDataSource.fetchRooms(token).list.also {rooms ->
                 roomSqlDelightDataSource.clearDatabase()

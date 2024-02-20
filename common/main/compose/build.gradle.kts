@@ -26,6 +26,7 @@ kotlin{
 
                 implementation(Dependencies.Android.Image.core)
                 implementation(Dependencies.Android.Image.compose)
+                implementation(Dependencies.Android.Refresh.core)
 
             }
         }
