@@ -2,14 +2,23 @@ plugins{
     id("multiplatform")
     kotlin("multiplatform")
     kotlin("plugin.serialization")
-    id("com.squareup.sqldelight")
+    id("app.cash.sqldelight")
 }
 
+
 sqldelight {
-    database("GoShellDatabase") {
-        packageName = "com.larkes.goshellapp.common.core"
+    databases {
+        create("GoShellDatabase") {
+            packageName.set("com.larkes.goshellapp")
+            schemaOutputDirectory.set(File("src/commonMain/sqldelight/database/schema"))
+            migrationOutputDirectory.set(File("src/commonMain/sqldelight/database/migrations"))
+            generateAsync.set(true)
+        }
     }
+    linkSqlite = true
 }
+
+
 
 
 kotlin {
@@ -24,7 +33,6 @@ kotlin {
                 api(Dependencies.Settings.settings)
                 api(Dependencies.Koin.core)
                 api(Dependencies.Serialization.serialization)
-                api(Dependencies.SqlDelight.core)
             }
         }
         androidMain {
@@ -37,7 +45,7 @@ kotlin {
             dependencies {
                 implementation(Dependencies.Ktor.ios_darwing)
                 implementation(Dependencies.Ktor.ios_client)
-                implementation(Dependencies.SqlDelight.iosDriver)
+                api(Dependencies.SqlDelight.iosDriver)
             }
         }
 
@@ -45,6 +53,7 @@ kotlin {
 
 
 }
+
 
 android{
     namespace = "com.larkes.myshell.common.core"

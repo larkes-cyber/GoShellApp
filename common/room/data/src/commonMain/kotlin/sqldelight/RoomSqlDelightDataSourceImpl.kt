@@ -1,11 +1,11 @@
 package sqldelight
 
-import com.larkes.goshellapp.common.core.GoShellDatabase
+import com.larkes.goshellapp.GoShellDatabase
 import models.Room
 import kotlin.math.log
 
 class RoomSqlDelightDataSourceImpl(
-    private val db:GoShellDatabase
+    private val db: GoShellDatabase
 ):RoomSqlDelightDataSource {
 
     private val queries = db.goShellDatabaseQueries
