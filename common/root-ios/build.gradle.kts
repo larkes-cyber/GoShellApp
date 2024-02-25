@@ -20,6 +20,7 @@ kotlin{
             export(project(":common:auth:presentation"))
             export(project(":common:main:presentation"))
             export(project(":common:room:presentation"))
+            isStatic = true
         }
 
         sourceSets{
