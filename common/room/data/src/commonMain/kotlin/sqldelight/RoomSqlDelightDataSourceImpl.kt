@@ -10,6 +10,7 @@ class RoomSqlDelightDataSourceImpl(
 
     private val queries = db.goShellDatabaseQueries
     override suspend fun cacheRoom(room: Room) {
+        println(room.toString())
         queries.insertRoom(
             id = room.id!!,
             image = room.image,
@@ -19,6 +20,7 @@ class RoomSqlDelightDataSourceImpl(
     }
 
     override suspend fun fetchRooms(): List<Room> {
+        println(queries.fetchRooms().executeAsList())
         return queries.fetchRooms().executeAsList().map {
             Room(
                 id = it.id,

@@ -18,7 +18,7 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
     private val deviceRepository = Inject.di.get<DeviceRepository>()
 
     init {
-        fetchRooms(false)
+        fetchRooms(true, 0, 4)
     }
 
     override fun obtainEvent(viewEvent: RoomEvent) {
@@ -29,7 +29,7 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
             }
 
             RoomEvent.AddRoomClick -> {
-                fetchRooms(false)
+                fetchRooms(false,0, 4)
             }
 
             RoomEvent.CloseAddRoomModal -> {
@@ -40,7 +40,10 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
                 openAddRoom()
             }
             RoomEvent.Refresh -> {
-                fetchRooms(true)
+                fetchRooms(true, 0,  4)
+            }
+            RoomEvent.NewRooms -> {
+                fetchRooms(true, 0, viewState.rooms.size + 4, false)
             }
 
         }
@@ -58,12 +61,16 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
         viewAction = RoomAction.OpenRoomDetail
     }
 
-    private fun fetchRooms(forcedReload:Boolean){
+    private fun fetchRooms(forcedReload:Boolean, from:Int, to:Int, loadingEffect:Boolean = true){
         viewModelScope.launch {
-            viewState = viewState.copy(isLoading = true, rooms = emptyList())
+           if(loadingEffect) viewState = viewState.copy(isLoading = true, rooms = emptyList())
             try {
                 val rooms = roomRepository
-                    .fetchRooms(forcedReload)
+                    .fetchRooms(
+                        forceReload = forcedReload,
+                        from = from,
+                        to = to
+                    )
                     .map { room ->
                         val devices = deviceRepository
                             .fetchRoomDevices(room.id!!)

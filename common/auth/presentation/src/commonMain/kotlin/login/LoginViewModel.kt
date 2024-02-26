@@ -19,10 +19,11 @@ class LoginViewModel:BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent
             val token = authRepository.fetchToken()
             if(token != null){
                 try {
-                    viewAction = LoginAction.OpenMainFlow
+                    authRepository.refreshToken()
                 }catch (e:Exception){
                     println(e)
                 }
+                viewAction = LoginAction.OpenMainFlow
             }
         }
 
