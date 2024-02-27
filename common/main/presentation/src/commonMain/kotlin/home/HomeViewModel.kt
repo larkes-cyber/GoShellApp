@@ -1,7 +1,7 @@
 package home
 
 import DeviceRepository
-import com.adeo.kviewmodel.BaseSharedViewModel
+import io.github.alexgladkov.kviewmodel.BaseSharedViewModel
 import di.Inject
 import home.models.HomeAction
 import home.models.HomeEvent

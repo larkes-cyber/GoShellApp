@@ -3,7 +3,7 @@ package navigation
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.CompositionLocalProvider
-import com.adeo.kviewmodel.odyssey.setupWithViewModels
+import io.github.alexgladkov.kviewmodel.odyssey.setupWithViewModels
 import ru.alexgladkov.odyssey.compose.base.Navigator
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder

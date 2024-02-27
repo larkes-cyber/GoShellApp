@@ -153,15 +153,17 @@ fun RoomsView(
                         Spacer(modifier = Modifier.height(15.dp))
                     }
                     item {
-                        Box(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.Center
-                        ){
-                            CircularProgressIndicator(
-                                modifier = Modifier.onFocusEvent {
-                                    eventHandler(RoomEvent.NewRooms)
-                                }
-                            )
+                        if(state.paginingHidden.not()) {
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.onFocusEvent {
+                                        eventHandler(RoomEvent.NewRooms)
+                                    }
+                                )
+                            }
                         }
                     }
                 }

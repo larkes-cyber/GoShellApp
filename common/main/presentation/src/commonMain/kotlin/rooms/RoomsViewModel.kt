@@ -2,7 +2,7 @@ package rooms
 
 import DeviceRepository
 import RoomRepository
-import com.adeo.kviewmodel.BaseSharedViewModel
+import io.github.alexgladkov.kviewmodel.BaseSharedViewModel
 import di.Inject
 import kotlinx.coroutines.launch
 import rooms.models.RoomAction
@@ -81,7 +81,8 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
                             name = room.name
                         )
                     }
-                viewState = viewState.copy(rooms = rooms)
+
+                viewState = viewState.copy(paginingHidden = rooms.size == viewState.rooms.size, rooms = rooms)
             }catch (e:Exception){
                 println(e)
             }

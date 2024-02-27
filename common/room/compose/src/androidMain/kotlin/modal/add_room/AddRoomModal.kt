@@ -1,9 +1,11 @@
 package modal.add_room
 
 import androidx.compose.runtime.Composable
-import com.adeo.kviewmodel.compose.observeAsState
-import com.adeo.kviewmodel.odyssey.StoredViewModel
+import io.github.alexgladkov.kviewmodel.compose.ViewModel
+import io.github.alexgladkov.kviewmodel.compose.observeAsState
+import io.github.alexgladkov.kviewmodel.odyssey.StoredViewModel
 import modal.add_room.models.AddRoomAction
+import modal.add_room.models.AddRoomEvent
 import modal.add_room.view.DoneView
 import modal.add_room.view.RoomNameView
 import modal.add_room.view.SelectDevicesView
@@ -13,10 +15,9 @@ import ru.alexgladkov.odyssey.compose.local.LocalRootController
 @Composable
 fun AddRoomModal(onCloseClick:() -> Unit) {
 
-    StoredViewModel(factory = { AddRoomViewModel() }){ viewModel ->
+    ViewModel(factory = { AddRoomViewModel() }){ viewModel ->
         val state = viewModel.viewStates().observeAsState()
         val action = viewModel.viewActions().observeAsState()
-
 
 
         when(action.value){

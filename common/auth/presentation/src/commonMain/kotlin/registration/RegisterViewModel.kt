@@ -1,7 +1,7 @@
 package registration
 
 import AuthRepository
-import com.adeo.kviewmodel.BaseSharedViewModel
+import io.github.alexgladkov.kviewmodel.BaseSharedViewModel
 import di.Inject
 import kotlinx.coroutines.launch
 import registration.models.RegisterAction

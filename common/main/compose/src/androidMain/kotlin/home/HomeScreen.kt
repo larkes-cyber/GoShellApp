@@ -1,8 +1,8 @@
 package home
 
 import androidx.compose.runtime.Composable
-import com.adeo.kviewmodel.compose.observeAsState
-import com.adeo.kviewmodel.odyssey.StoredViewModel
+import io.github.alexgladkov.kviewmodel.compose.observeAsState
+import io.github.alexgladkov.kviewmodel.odyssey.StoredViewModel
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
 
 @Composable

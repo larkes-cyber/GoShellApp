@@ -2,7 +2,7 @@ package modal.add_room
 
 import DeviceRepository
 import RoomRepository
-import com.adeo.kviewmodel.BaseSharedViewModel
+import io.github.alexgladkov.kviewmodel.BaseSharedViewModel
 import di.Inject
 import kotlinx.coroutines.launch
 import modal.add_room.models.AddRoomAction
@@ -40,6 +40,7 @@ class AddRoomViewModel: BaseSharedViewModel<AddRoomViewState, AddRoomAction, Add
             is AddRoomEvent.ContinueClicked ->{
                 obtainNextPhase()
             }
+
 
         }
     }
