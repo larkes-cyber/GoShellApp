@@ -33,21 +33,20 @@ class RoomKtorDataSourceImpl(
         return response.bodyAsText()
     }
 
-    override suspend fun fetchRooms(tokenDTO: TokenDTO, from:Int, to:Int): RoomResponse<Room> {
+    override suspend fun fetchRooms(tokenDTO: TokenDTO, count:Int): RoomResponse<Room> {
         val response = httpClient.post{
+            delay(800)
             contentType(ContentType.Application.Json)
             url {
                 path(RoomKtorDataSource.FETCH_ROOMS)
                 setBody(tokenDTO)
-                parameters.append("from", from.toString())
-                parameters.append("to", to.toString())
+                parameters.append("count", count.toString())
             }
         }
         if(response.status.isSuccess().not()){
             val error = response.bodyAsText()
             throw Exception(error)
         }
-        println(response.bodyAsText() + "  @@#@#@#")
         return response.body()
     }
 

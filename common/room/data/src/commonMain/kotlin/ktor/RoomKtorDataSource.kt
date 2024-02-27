@@ -7,7 +7,7 @@ import models.TokenDTO
 
 interface RoomKtorDataSource {
     suspend fun addRoom(roomRequest: RoomRequest):String
-    suspend fun fetchRooms(tokenDTO: TokenDTO, from:Int, to:Int):RoomResponse<Room>
+    suspend fun fetchRooms(tokenDTO: TokenDTO, count:Int):RoomResponse<Room>
     suspend fun fetchPhotos(tokenDTO: TokenDTO):RoomResponse<String>
 
     companion object{
