@@ -1,0 +1,30 @@
+import kotlin.Boolean;
+
+CREATE TABLE roomDeviceEntity(
+    id TEXT NOT NULL PRIMARY KEY,
+    typeId TEXT NOT NULL,
+    roomId TEXT NOT NULL,
+    login TEXT,
+    active INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    icon TEXT,
+    name TEXT
+);
+
+insertRoomDevice:
+INSERT OR REPLACE
+INTO roomDeviceEntity(
+    id,
+    typeId,
+    roomId,
+    login,
+    active,
+    icon,
+    name
+)VALUES(?,?,?,?, ?, ?,?);
+
+fetchRoomDevices:
+SELECT *
+FROM roomDeviceEntity;
+
+removeRoomDevices:
+DELETE FROM roomDeviceEntity;

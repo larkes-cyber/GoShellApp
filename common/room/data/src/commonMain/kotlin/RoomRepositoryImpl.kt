@@ -25,21 +25,21 @@ class RoomRepositoryImpl(
         return id
     }
 
-    override suspend fun fetchRooms(forceReload:Boolean, count:Int): List<Room> {
-        val cachedRooms = roomSqlDelightDataSource.fetchRooms()
-        println(cachedRooms)
-          if(cachedRooms.isNotEmpty() && !forceReload){
-             return cachedRooms.asReversed()
-          }else{
-              val token = authRepository.fetchToken() ?: return emptyList()
+    override suspend fun fetchRooms(count:Int): List<Room> {
 
-              roomSqlDelightDataSource.clearDatabase()
-              val rooms = roomKtorDataSource.fetchRooms(token, count).list
-              rooms.asReversed().forEach {
-                   roomSqlDelightDataSource.cacheRoom(it)
-             }
-             return rooms
+        val token = authRepository.fetchToken() ?: return emptyList()
+        return try {
+          val rooms = roomKtorDataSource.fetchRooms(token, count).list
+          roomSqlDelightDataSource.clearDatabase()
+          rooms.asReversed().forEach {
+              roomSqlDelightDataSource.cacheRoom(it)
+          }
+          rooms
+        }catch (e:Exception){
+            val cachedRooms = roomSqlDelightDataSource.fetchRooms()
+            cachedRooms.asReversed()
         }
+
     }
 
     override suspend fun fetchRoomPhotos(): List<String> {

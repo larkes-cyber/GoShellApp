@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RoomDevice(
-    val id:String? = null,
+    var id:String? = null,
     val typeId:String,
     val roomId:String,
     val login:String? = null,

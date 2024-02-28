@@ -18,7 +18,7 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
     private val deviceRepository = Inject.di.get<DeviceRepository>()
 
     init {
-        fetchRooms(true, 4)
+        fetchRooms(4)
     }
 
     override fun obtainEvent(viewEvent: RoomEvent) {
@@ -29,7 +29,7 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
             }
 
             RoomEvent.AddRoomClick -> {
-                fetchRooms(false,4)
+                fetchRooms(4)
             }
 
             RoomEvent.CloseAddRoomModal -> {
@@ -40,10 +40,10 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
                 openAddRoom()
             }
             RoomEvent.Refresh -> {
-                fetchRooms(true,   4)
+                fetchRooms(  4)
             }
             RoomEvent.NewRooms -> {
-                fetchRooms(true, viewState.rooms.size + 4, false)
+                fetchRooms(viewState.rooms.size + 4, false)
             }
 
         }
@@ -61,13 +61,12 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
         viewAction = RoomAction.OpenRoomDetail
     }
 
-    private fun fetchRooms(forcedReload:Boolean, count:Int, loadingEffect:Boolean = true){
+    private fun fetchRooms(count:Int, loadingEffect:Boolean = true){
         viewModelScope.launch {
            if(loadingEffect) viewState = viewState.copy(isLoading = true, rooms = emptyList())
             try {
                 val rooms = roomRepository
                     .fetchRooms(
-                        forceReload = forcedReload,
                         count = count
                     )
                     .map { room ->
@@ -83,7 +82,7 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
 
                 viewState = viewState.copy(paginingHidden = rooms.size == viewState.rooms.size, rooms = rooms)
             }catch (e:Exception){
-                println(e)
+                println(e.toString() + "   #$%#$#$#")
             }
             finally {
                 viewState = viewState.copy(isLoading = false)

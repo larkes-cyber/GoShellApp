@@ -1,14 +1,14 @@
 package sqldelight
 
-import com.larkes.goshellapp.GoShellDatabase
+import com.larkes.goshellapp.RoomDatabase
 import models.Room
 import kotlin.math.log
 
 class RoomSqlDelightDataSourceImpl(
-    private val db: GoShellDatabase
+    private val db: RoomDatabase
 ):RoomSqlDelightDataSource {
 
-    private val queries = db.goShellDatabaseQueries
+    private val queries = db.roomEntityQueries
     override suspend fun cacheRoom(room: Room) {
         println(room.toString())
         queries.insertRoom(

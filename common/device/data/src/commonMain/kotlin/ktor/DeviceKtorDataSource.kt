@@ -12,7 +12,7 @@ import models.TokenDTO
 interface DeviceKtorDataSource {
     suspend fun fetchDevices(tokenDTO: TokenDTO):List<Device>
     suspend fun fetchRoomDevices(getRoomDevicesRequest: GetRoomDevicesRequest):List<RoomDevice>
-    suspend fun addRoomDevice(addRoomDeviceRequest: AddRoomDeviceRequest)
+    suspend fun addRoomDevice(addRoomDeviceRequest: AddRoomDeviceRequest):String
     suspend fun switchDeviceActive(deviceActiveRequest: DeviceActiveRequest)
     suspend fun fetchHomeDevices(tokenDTO: TokenDTO): DeviceResponse<HomeDevices>
     suspend fun switchDevicesActive(deviceActiveRequest: DeviceActiveRequest)

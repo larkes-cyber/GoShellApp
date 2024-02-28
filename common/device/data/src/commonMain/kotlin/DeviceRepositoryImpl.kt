@@ -5,10 +5,12 @@ import models.DeviceActiveRequest
 import models.GetRoomDevicesRequest
 import models.HomeDevices
 import models.RoomDevice
+import sqldelight.DeviceSqlDelightDataSource
 
 class DeviceRepositoryImpl(
     private val authRepository: AuthRepository,
-    private val deviceKtorDataSource: DeviceKtorDataSource
+    private val deviceKtorDataSource: DeviceKtorDataSource,
+    private val deviceSqlDelightDataSource: DeviceSqlDelightDataSource
 ):DeviceRepository {
     override suspend fun fetchDevices(): List<Device> {
         val token = authRepository.fetchToken() ?: return emptyList()
@@ -16,16 +18,24 @@ class DeviceRepositoryImpl(
     }
 
     override suspend fun fetchRoomDevices(roomId: String): List<RoomDevice> {
+        println(" dddd     ddeddddddddd")
         val token = authRepository.fetchToken() ?: return emptyList()
-        return deviceKtorDataSource.fetchRoomDevices(GetRoomDevicesRequest(
-            roomId = roomId,
-            token = token
-        ))
+        try {
+            println(" dddd     ddeddddddddd")
+            val devices = deviceKtorDataSource.fetchRoomDevices(GetRoomDevicesRequest(
+                roomId = roomId,
+                token = token
+            ))
+            println(" dddd     ddeddddddddd")
+            return devices
+        } catch (e:Exception){
+            return deviceSqlDelightDataSource.fetchRoomDevices()
+        }
     }
 
     override suspend fun addRoomDevice(roomDevice: RoomDevice) {
         val token = authRepository.fetchToken() ?: return
-        deviceKtorDataSource.addRoomDevice(
+        val id = deviceKtorDataSource.addRoomDevice(
             AddRoomDeviceRequest(
                 roomId = roomDevice.roomId,
                 token = token,
@@ -33,6 +43,9 @@ class DeviceRepositoryImpl(
                 name = roomDevice.name
             )
         )
+        roomDevice.id = id
+        deviceSqlDelightDataSource.cacheRoomDevice(roomDevice)
+
     }
 
     override suspend fun switchDeviceActive(deviceId: String) {

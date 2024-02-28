@@ -6,11 +6,10 @@ import app.cash.sqldelight.db.QueryResult
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.db.SqlSchema
 import app.cash.sqldelight.driver.native.NativeSqliteDriver
-import com.larkes.goshellapp.GoShellDatabase
 import platform.PlatformConfiguration
 
 actual class SqlDelightDriverFactory actual constructor(private val platformConfiguration: PlatformConfiguration){
-    actual fun makeDriver(schema: SqlSchema<QueryResult.AsyncValue<Unit>>): SqlDriver {
-        return NativeSqliteDriver(schema.synchronous(), "goshell.db")
+    actual fun makeDriver(schema: SqlSchema<QueryResult.AsyncValue<Unit>>, name:String): SqlDriver {
+        return NativeSqliteDriver(schema.synchronous(), name)
     }
 }

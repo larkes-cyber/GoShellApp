@@ -8,10 +8,8 @@ plugins{
 
 sqldelight {
     databases {
-        create("GoShellDatabase") {
+        create("RoomDatabase") {
             packageName.set("com.larkes.goshellapp")
-            schemaOutputDirectory.set(File("src/commonMain/sqldelight/database/schema"))
-            migrationOutputDirectory.set(File("src/commonMain/sqldelight/database/migrations"))
             generateAsync.set(true)
         }
     }

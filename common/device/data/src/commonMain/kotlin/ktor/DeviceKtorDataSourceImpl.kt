@@ -51,7 +51,7 @@ class DeviceKtorDataSourceImpl(
         return response.body()
     }
 
-    override suspend fun addRoomDevice(addRoomDeviceRequest: AddRoomDeviceRequest) {
+    override suspend fun addRoomDevice(addRoomDeviceRequest: AddRoomDeviceRequest):String {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
@@ -63,6 +63,7 @@ class DeviceKtorDataSourceImpl(
             val error = response.bodyAsText()
             throw Exception(error)
         }
+        return response.bodyAsText()
     }
 
     override suspend fun switchDeviceActive(deviceActiveRequest: DeviceActiveRequest) {
