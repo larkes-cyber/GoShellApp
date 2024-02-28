@@ -14,7 +14,8 @@ data class GoShellColors(
     val fourthTextColor: Color,
     val fifthTextColor: Color,
     val fieldColor: Color,
-    val primaryColor:Color
+    val primaryColor:Color,
+    val subgroundColor:Color
 )
 
 val palette = GoShellColors(
@@ -28,7 +29,8 @@ val palette = GoShellColors(
     fourthTextColor = Color(0xFFA8ADB7),
     fifthTextColor = Color(0xFF45454D),
     fieldColor = Color(0xFFF8F8F8),
-    primaryColor = Color(0xFF101010)
+    primaryColor = Color(0xFF101010),
+    subgroundColor = Color(0xFFF7F7F7)
 )
 
 val LocalColorProvider = staticCompositionLocalOf<GoShellColors> {
