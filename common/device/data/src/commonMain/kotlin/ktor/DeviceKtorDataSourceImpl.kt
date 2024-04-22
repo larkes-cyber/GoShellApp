@@ -2,6 +2,7 @@ package ktor
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.bodyAsText
@@ -25,8 +26,8 @@ class DeviceKtorDataSourceImpl(
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.FETCH_DEVICES)
-                setBody(tokenDTO)
             }
         }
         if(response.status.isSuccess().not()){
@@ -36,10 +37,11 @@ class DeviceKtorDataSourceImpl(
         return response.body()
     }
 
-    override suspend fun fetchRoomDevices(getRoomDevicesRequest: GetRoomDevicesRequest): List<RoomDevice> {
+    override suspend fun fetchRoomDevices(tokenDTO: TokenDTO, getRoomDevicesRequest: GetRoomDevicesRequest): List<RoomDevice> {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.FETCH_ROOM_DEVICES)
                 setBody(getRoomDevicesRequest)
             }
@@ -51,10 +53,11 @@ class DeviceKtorDataSourceImpl(
         return response.body()
     }
 
-    override suspend fun addRoomDevice(addRoomDeviceRequest: AddRoomDeviceRequest):String {
+    override suspend fun addRoomDevice(tokenDTO: TokenDTO, addRoomDeviceRequest: AddRoomDeviceRequest):String {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.ADD_ROOM_DEVICE)
                 setBody(addRoomDeviceRequest)
             }
@@ -66,10 +69,11 @@ class DeviceKtorDataSourceImpl(
         return response.bodyAsText()
     }
 
-    override suspend fun switchDeviceActive(deviceActiveRequest: DeviceActiveRequest) {
+    override suspend fun switchDeviceActive(tokenDTO: TokenDTO, deviceActiveRequest: DeviceActiveRequest) {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.SWITCH_DEVICE_ACTIVE)
                 setBody(deviceActiveRequest)
             }
@@ -84,6 +88,7 @@ class DeviceKtorDataSourceImpl(
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.FETCH_HOME_DEVICES)
                 setBody(tokenDTO)
             }
@@ -95,10 +100,11 @@ class DeviceKtorDataSourceImpl(
         return response.body()
     }
 
-    override suspend fun switchDevicesActive(deviceActiveRequest: DeviceActiveRequest) {
+    override suspend fun switchDevicesActive(tokenDTO: TokenDTO, deviceActiveRequest: DeviceActiveRequest) {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.SWITCH_DEVICES_ACTIVE)
                 setBody(deviceActiveRequest)
             }

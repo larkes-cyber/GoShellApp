@@ -2,6 +2,7 @@ package ktor
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.bodyAsText
@@ -18,16 +19,17 @@ import models.TokenDTO
 class RoomKtorDataSourceImpl(
     private val httpClient: HttpClient
 ):RoomKtorDataSource {
-    override suspend fun addRoom(roomRequest: RoomRequest):String {
+    override suspend fun addRoom(tokenDTO: TokenDTO, roomRequest: RoomRequest):String {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(RoomKtorDataSource.ADD_ROOM)
                 setBody(roomRequest)
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.bodyAsText()
@@ -38,8 +40,8 @@ class RoomKtorDataSourceImpl(
             delay(800)
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(RoomKtorDataSource.FETCH_ROOMS)
-                setBody(tokenDTO)
                 parameters.append("count", count.toString())
             }
         }
@@ -54,8 +56,8 @@ class RoomKtorDataSourceImpl(
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
+                header("Authorization", "Bearer ${tokenDTO.token}")
                 path(RoomKtorDataSource.FETCH_PHOTOS)
-                setBody(tokenDTO)
             }
         }
         if(response.status.isSuccess().not()){

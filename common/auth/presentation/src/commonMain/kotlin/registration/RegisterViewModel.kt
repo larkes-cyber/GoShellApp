@@ -55,18 +55,21 @@ class RegisterViewModel:BaseSharedViewModel<RegisterViewState, RegisterAction, R
         viewModelScope.launch {
 
             try {
-
-                val result = authRepository.performRegistration(
+                authRepository.performRegistration(
                     login = viewState.login,
                     password = viewState.password,
                     name = viewState.name
                 )
-                println(result)
+                authRepository.performLogin(
+                    login = viewState.login,
+                    password = viewState.password
+                )
 
                 viewAction = RegisterAction.OpenMainFlow
 
             }catch (e:Exception){
                 println(e.message)
+                viewState = viewState.copy(error = e.message ?: "", isSending = false)
             }
 
         }

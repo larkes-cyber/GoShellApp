@@ -1,8 +1,7 @@
 CREATE TABLE roomEntity(
     id TEXT NOT NULL PRIMARY KEY,
     image TEXT NOT NULL,
-    name TEXT NOT NULL,
-    login TEXT NOT NULL
+    name TEXT NOT NULL
 );
 
 fetchRooms:
@@ -14,9 +13,8 @@ INSERT OR REPLACE
 INTO roomEntity(
     id,
     image,
-    name,
-    login
-)VALUES(?,?,?,?);
+    name
+)VALUES(?,?,?);
 
 removeAllRooms:
 DELETE FROM roomEntity;

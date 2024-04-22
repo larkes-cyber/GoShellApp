@@ -19,11 +19,6 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
         viewModelScope.launch {
             val token = authRepository.fetchToken()
             if(token != null){
-                try {
-                    authRepository.refreshToken()
-                }catch (e:Exception){
-                    println(e)
-                }
                 viewAction = LoginAction.OpenMainFlow
             }
         }
@@ -75,6 +70,7 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
                 viewAction = LoginAction.OpenMainFlow
 
             }catch (e:Exception){
+                viewState = viewState.copy(error = e.message ?: "", isSending = false)
                 println(e.message)
             }
 

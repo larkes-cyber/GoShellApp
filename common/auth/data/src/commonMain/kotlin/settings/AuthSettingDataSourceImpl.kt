@@ -19,17 +19,6 @@ class AuthSettingDataSourceImpl(
         return Json.decodeFromString(TokenDTO.serializer(), token)
     }
 
-    override suspend fun putUserData(userData: UserData) {
-        settings.putString(user_key, Json.encodeToString(UserData.serializer(), userData))
-
-    }
-
-    override suspend fun fetchUserData(): UserData? {
-        val user = settings[user_key, ""]
-        if(user.isEmpty())return null
-        return Json.decodeFromString(UserData.serializer(), user)
-    }
-
     companion object{
         private const val token_key = "Token"
         private const val user_key = "User"

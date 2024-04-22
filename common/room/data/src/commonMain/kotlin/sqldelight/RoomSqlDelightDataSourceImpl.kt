@@ -14,8 +14,7 @@ class RoomSqlDelightDataSourceImpl(
         queries.insertRoom(
             id = room.id!!,
             image = room.image,
-            name = room.name,
-            login = room.login
+            name = room.name
         )
     }
 
@@ -25,8 +24,7 @@ class RoomSqlDelightDataSourceImpl(
             Room(
                 id = it.id,
                 image = it.image,
-                name = it.name,
-                login = it.login
+                name = it.name
             )
         }
     }

@@ -18,15 +18,9 @@ class DeviceRepositoryImpl(
     }
 
     override suspend fun fetchRoomDevices(roomId: String): List<RoomDevice> {
-        println(" dddd     ddeddddddddd")
         val token = authRepository.fetchToken() ?: return emptyList()
         try {
-            println(" dddd     ddeddddddddd")
-            val devices = deviceKtorDataSource.fetchRoomDevices(GetRoomDevicesRequest(
-                roomId = roomId,
-                token = token
-            ))
-            println(" dddd     ddeddddddddd")
+            val devices = deviceKtorDataSource.fetchRoomDevices(token, GetRoomDevicesRequest(roomId = roomId))
             return devices
         } catch (e:Exception){
             return deviceSqlDelightDataSource.fetchRoomDevices()
@@ -35,10 +29,9 @@ class DeviceRepositoryImpl(
 
     override suspend fun addRoomDevice(roomDevice: RoomDevice) {
         val token = authRepository.fetchToken() ?: return
-        val id = deviceKtorDataSource.addRoomDevice(
+        val id = deviceKtorDataSource.addRoomDevice(token,
             AddRoomDeviceRequest(
                 roomId = roomDevice.roomId,
-                token = token,
                 typeId = roomDevice.typeId,
                 name = roomDevice.name
             )
@@ -50,10 +43,9 @@ class DeviceRepositoryImpl(
 
     override suspend fun switchDeviceActive(deviceId: String) {
         val token = authRepository.fetchToken() ?: return
-        deviceKtorDataSource.switchDeviceActive(
+        deviceKtorDataSource.switchDeviceActive(token,
             DeviceActiveRequest(
-                id = deviceId,
-                token = token
+                id = deviceId
             )
         )
     }
@@ -65,8 +57,7 @@ class DeviceRepositoryImpl(
 
     override suspend fun switchDevicesActive(typeId: String) {
         val token = authRepository.fetchToken() ?: return
-        deviceKtorDataSource.switchDevicesActive(DeviceActiveRequest(
-            token = token,
+        deviceKtorDataSource.switchDevicesActive(token, DeviceActiveRequest(
             id = typeId
         ))
     }

@@ -17,7 +17,6 @@ import models.TokenDTO
 class AuthKtorDataSourceImpl(
     private val httpClient: HttpClient
 ):AuthKtorDataSource {
-//sdfsdfdsdfs
     override suspend fun sendLogin(loginRequest: LoginRequest): TokenDTO {
         val response =  httpClient.post{
             contentType(ContentType.Application.Json)
@@ -28,14 +27,14 @@ class AuthKtorDataSourceImpl(
         }
 
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
 
         return response.body()
     }
 
-    override suspend fun sendRegistration(registrationRequest: RegistrationRequest): TokenDTO {
+    override suspend fun sendRegistration(registrationRequest: RegistrationRequest) {
         val response = httpClient.post{
             contentType(ContentType.Application.Json)
             url {
@@ -44,9 +43,8 @@ class AuthKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
-        return response.body()
     }
 }

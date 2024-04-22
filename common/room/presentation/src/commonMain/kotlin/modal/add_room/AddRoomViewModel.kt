@@ -85,7 +85,7 @@ class AddRoomViewModel: BaseSharedViewModel<AddRoomViewState, AddRoomAction, Add
                         }
                         viewAction = AddRoomAction.OpenDone
                     }catch (e:Exception){
-
+                        println(e.message + " ffbvccvcvvv")
                     }
                 }
             }

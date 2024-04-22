@@ -1,10 +1,27 @@
 package register
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import login.models.LoginEvent
 
 import registration.models.RegisterEvent
@@ -12,12 +29,31 @@ import registration.models.RegisterViewState
 
 @Composable
 fun RegisterView(state: RegisterViewState, eventHandler: (RegisterEvent) -> Unit) {
-    Column {
+
+
+    Column(
+        modifier = Modifier.fillMaxSize().background(Color.White).padding(horizontal = 20.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(
+            text = "Registration",
+            style = MaterialTheme.typography.h3,
+            textAlign = TextAlign.Start,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
 
         TextField(
             value = state.name,
             onValueChange = {
                 eventHandler(RegisterEvent.NameChanged(it))
+            },
+            modifier = Modifier.fillMaxWidth(),
+            label = {
+                Text("Enter your name")
             }
         )
 
@@ -25,6 +61,10 @@ fun RegisterView(state: RegisterViewState, eventHandler: (RegisterEvent) -> Unit
             value = state.login,
             onValueChange = {
                 eventHandler(RegisterEvent.EmailChanged(it))
+            },
+            modifier = Modifier.fillMaxWidth(),
+            label = {
+                Text("Enter your login")
             }
         )
 
@@ -32,24 +72,44 @@ fun RegisterView(state: RegisterViewState, eventHandler: (RegisterEvent) -> Unit
             value = state.password,
             onValueChange = {
                 eventHandler(RegisterEvent.PasswordChanged(it))
+            },
+            modifier = Modifier.fillMaxWidth(),
+            label = {
+                Text("Enter your password")
             }
         )
+
+        Spacer(modifier = Modifier.height(15.dp))
 
         Button(
             onClick = {
                 eventHandler(RegisterEvent.RegisterClick)
-            }
+            },
+            modifier = Modifier.fillMaxWidth().height(60.dp),
+            shape = RoundedCornerShape(12.dp),
+            enabled = state.isSending.not()
         ){
             Text("Click")
         }
 
-        Button(
-            onClick = {
-                eventHandler(RegisterEvent.LoginClick)
-            }
+        Spacer(Modifier.height(7.dp))
+
+        ClickableText(
+            text = AnnotatedString("to login")
         ){
-            Text("to login")
+            eventHandler(RegisterEvent.LoginClick)
+
         }
 
+        Spacer(Modifier.height(20.dp))
+
+        Text(
+            text = state.error,
+            fontSize = 15.sp,
+            color = Color.Red
+        )
+
+
     }
+
 }

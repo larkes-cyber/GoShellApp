@@ -14,7 +14,6 @@ class DeviceSqlDelightDataSourceImpl(
             id = roomDevice.id!!,
             active = roomDevice.active,
             icon = roomDevice.icon,
-            login = roomDevice.login,
             name = roomDevice.name,
             roomId = roomDevice.roomId,
             typeId = roomDevice.typeId
@@ -27,7 +26,6 @@ class DeviceSqlDelightDataSourceImpl(
                 id = roomDevice.id,
                 active = roomDevice.active,
                 icon = roomDevice.icon,
-                login = roomDevice.login,
                 name = roomDevice.name,
                 roomId = roomDevice.roomId,
                 typeId = roomDevice.typeId

@@ -7,7 +7,6 @@ data class RoomDevice(
     var id:String? = null,
     val typeId:String,
     val roomId:String,
-    val login:String? = null,
     val active:Boolean = false,
     val icon:String? = null,
     var name:String? = null

@@ -10,17 +10,15 @@ class RoomRepositoryImpl(
 ):RoomRepository {
     override suspend fun addRoom(name: String, photo: String):String? {
         val token = authRepository.fetchToken() ?: return null
-        val id = roomKtorDataSource.addRoom(RoomRequest(
-            token = token,
+        val id = roomKtorDataSource.addRoom(token, RoomRequest(
             name = name,
             image = photo
         ))
         roomSqlDelightDataSource.cacheRoom(
             Room(
-            id = id,
-            name = name,
-            login = token.login,
-            image = photo
+                id = id,
+                name = name,
+                image = photo
         ))
         return id
     }
