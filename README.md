@@ -3,14 +3,19 @@
 Go shell app is application that helps you to controll your home.
 
 ## Features:
-
+- Мultiplatform app
 - Multi-module architecture
 - JWT Authorization
 - Navigation
 - Сaching
 - REST APIs
 
-## Modules:
+## Multi-module architecture
+
+### Overview
+![image](https://github.com/larkes-cyber/GoShellApp/assets/79082708/37fc5756-f7b6-4dff-9495-9baa62ba5a1a)
+
+### Modules:
 - Core [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/core)
 <img width="430" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/306dc143-4d63-4997-b723-9387c619c5f5">
 
@@ -63,4 +68,3 @@ Go shell app is application that helps you to controll your home.
 
 - Room [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/core)
 <img width="412" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/51ef7e29-c816-4554-a937-250063b14229">
-
