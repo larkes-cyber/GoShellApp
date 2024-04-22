@@ -68,3 +68,16 @@ Go shell app is application that helps you to controll your home.
 
 - Room [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/core)
 <img width="412" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/51ef7e29-c816-4554-a937-250063b14229">
+
+## JWT Authorization
+
+### Auth module [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/core)
+
+### Getting token [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/auth/data/src/commonMain/kotlin/ktor/AuthKtorDataSourceImpl.kt)
+<img width="592" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/9d8ea1ab-1f3f-47aa-8954-820b074f712a">
+
+
+### Save token [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/auth/data/src/commonMain/kotlin/settings/AuthSettingDataSourceImpl.kt)
+<img width="701" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/1f580542-dd2d-4689-941b-c60ab92cdf5c">
+
+
