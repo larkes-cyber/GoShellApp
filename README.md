@@ -115,12 +115,12 @@ https://github.com/larkes-cyber/GoShellApp/assets/79082708/85136066-41d0-4b72-86
 ### Screencast [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/room/compose/src/androidMain/kotlin/modal/add_room)
 https://github.com/larkes-cyber/GoShellApp/assets/79082708/8a1dc0fb-8e9c-447f-aac8-47ebc8cc707a
 
-## Backend [link](https://github.com/larkes-cyber/GoShellBackend/tree/main) 
 ## How to start
 - Launch the server
 - Clone repository
 - Paste your ipv4 [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/core/src/commonMain/kotlin/ktor/KtorModule.kt)
 - Enjoy the app !
+## Backend [link](https://github.com/larkes-cyber/GoShellBackend/tree/main) 
 
 
 
