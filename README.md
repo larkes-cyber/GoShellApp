@@ -3,11 +3,10 @@
 Go shell app is application that helps you to controll your home.
 
 ## Features:
-- Мultiplatform app
 - Multi-module architecture
 - JWT Authorization
-- Navigation
 - Сaching
+- Pagination
 - REST APIs
 
 ## Multi-module architecture
@@ -71,13 +70,27 @@ Go shell app is application that helps you to controll your home.
 
 ## JWT Authorization
 
-### Auth module [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/core)
-
 ### Getting token [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/auth/data/src/commonMain/kotlin/ktor/AuthKtorDataSourceImpl.kt)
-<img width="592" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/9d8ea1ab-1f3f-47aa-8954-820b074f712a">
+<img width="590" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/e1921c4a-f915-4ec7-93ca-2aa8a4c69de6">
 
 
-### Save token [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/auth/data/src/commonMain/kotlin/settings/AuthSettingDataSourceImpl.kt)
-<img width="701" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/1f580542-dd2d-4689-941b-c60ab92cdf5c">
+### Saving token [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/auth/data/src/commonMain/kotlin/settings/AuthSettingDataSourceImpl.kt)
+<img width="702" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/d5dbf000-4c21-481e-a8f0-8356a56b06c8">
 
+### Pinning token
+<img width="514" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/0fd9008a-be2b-4fec-ac3c-61371beb5d24">
+
+## Сaching
+
+### Addind room caching mechanism [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/auth/data/src/commonMain/kotlin/settings/AuthSettingDataSourceImpl.kt)
+<img width="587" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/5de4b7a3-35a6-452c-8c84-992b70c8a965">
+
+### Fetching rooms caching mechanism [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/room/data/src/commonMain/kotlin/RoomRepositoryImpl.kt)
+<img width="567" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/04a67e7e-2474-456c-9a79-704fe14705f1">
+
+### Room caching source [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/room/data/src/commonMain/kotlin/sqldelight/RoomSqlDelightDataSourceImpl.kt)
+<img width="573" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/f313e9f5-33c7-49b8-a9ce-c93fb0ee8b99">
+
+### Room devices caching mechanism [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/device/data/src/commonMain/kotlin/DeviceRepositoryImpl.kt)
+<img width="898" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/8abef1e3-7fec-481c-92a4-c2254e058116">
 
