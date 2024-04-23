@@ -34,7 +34,6 @@ class RoomRepositoryImpl(
           }
           rooms
         }catch (e:Exception){
-            println(e.message + " dfgdfgdfgdfgfdg")
             val cachedRooms = roomSqlDelightDataSource.fetchRooms()
             cachedRooms.asReversed()
         }

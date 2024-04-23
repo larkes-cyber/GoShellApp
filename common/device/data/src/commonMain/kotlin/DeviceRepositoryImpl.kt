@@ -20,9 +20,12 @@ class DeviceRepositoryImpl(
     override suspend fun fetchRoomDevices(roomId: String): List<RoomDevice> {
         val token = authRepository.fetchToken() ?: return emptyList()
         return try {
-            deviceKtorDataSource.fetchRoomDevices(token, GetRoomDevicesRequest(roomId = roomId))
+                val devices = deviceKtorDataSource.fetchRoomDevices(token, GetRoomDevicesRequest(roomId = roomId))
+                devices.forEach {
+                    deviceSqlDelightDataSource.cacheRoomDevice(it)
+                }
+                devices
             } catch (e:Exception){
-                println(e.message + " dfgdfgdfgdfccg")
             deviceSqlDelightDataSource.fetchRoomDevices()
         }
     }
