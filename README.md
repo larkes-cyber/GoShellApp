@@ -7,7 +7,7 @@ Go shell app is application that helps you to controll your home.
 - JWT Authorization
 - Сaching
 - Pagination
-- REST APIs
+- Modal view
 
 ## Multi-module architecture
 
@@ -91,6 +91,21 @@ Go shell app is application that helps you to controll your home.
 ### Room caching source [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/room/data/src/commonMain/kotlin/sqldelight/RoomSqlDelightDataSourceImpl.kt)
 <img width="573" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/f313e9f5-33c7-49b8-a9ce-c93fb0ee8b99">
 
+
 ### Room devices caching mechanism [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/device/data/src/commonMain/kotlin/DeviceRepositoryImpl.kt)
 <img width="898" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/8abef1e3-7fec-481c-92a4-c2254e058116">
+
+## Pagination
+
+### Screencast
+https://github.com/larkes-cyber/GoShellApp/assets/79082708/85136066-41d0-4b72-8618-c1c4a474482c
+
+### Room pagination mechanism [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/room/data/src/commonMain/kotlin/RoomRepositoryImpl.kt)
+<img width="590" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/94788b7c-6e94-4995-80a3-a02ab7afde4d">
+
+### Room pagination mechanism [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/room/data/src/commonMain/kotlin/RoomRepositoryImpl.kt)
+<img width="590" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/94788b7c-6e94-4995-80a3-a02ab7afde4d">
+
+### Fetching room view model [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/main/presentation/src/commonMain/kotlin/rooms/RoomsViewModel.kt)
+<img width="755" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/ffd6c32d-15bd-47ab-a3d1-9a6925374a44">
 
