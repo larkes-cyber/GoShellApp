@@ -3,7 +3,7 @@
 Go shell app is application that helps you to controll your home.
 
 ## Features:
-- Multi-module architecture
+- ### Multi-module architecture
 - JWT Authorization
 - Сaching
 - Pagination
