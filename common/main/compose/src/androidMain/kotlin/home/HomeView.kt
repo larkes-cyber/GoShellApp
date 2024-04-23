@@ -42,6 +42,8 @@ fun HomeView(state: HomeViewState, eventHandler: (HomeEvent) -> Unit) {
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
+            .fillMaxSize()
+            .background(Color.White)
             .padding(top = 25.dp)
     ) {
         Text(

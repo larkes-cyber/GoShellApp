@@ -22,6 +22,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.CheckCircle
@@ -33,6 +34,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
@@ -43,10 +45,25 @@ import theme.Theme
 @Composable
 fun SelectDevicesView(viewState: AddRoomViewState, viewEvent:(AddRoomEvent) -> Unit) {
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier.fillMaxSize().background(Color.White).padding(horizontal = 15.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(
+            "Add room devices",
+            style = MaterialTheme.typography.h4,
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
+
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 128.dp),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
            items(viewState.fetchedDevices){device ->
                Box(
@@ -96,13 +113,17 @@ fun SelectDevicesView(viewState: AddRoomViewState, viewEvent:(AddRoomEvent) -> U
            }
         }
 
+        Spacer(modifier = Modifier.height(25.dp))
         Button(
             onClick = {
                 viewEvent(AddRoomEvent.ContinueClicked)
-            }
+            },
+            modifier = Modifier.fillMaxWidth().height(50.dp),
+            shape = RoundedCornerShape(6.dp)
         ){
             Text("Continue")
         }
+
     }
 
 }

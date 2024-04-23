@@ -23,6 +23,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -35,6 +36,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.SubcomposeAsyncImage
@@ -45,14 +47,27 @@ import modal.add_room.models.AddRoomViewState
 fun SelectImageView(viewState: AddRoomViewState, viewEvent:(AddRoomEvent) -> Unit) {
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().background(Color.White).padding(horizontal = 15.dp),
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        Text(
+            "Choose room",
+            style = MaterialTheme.typography.h4,
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Start
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
+
 
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 128.dp),
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+
         ) {
             items(viewState.fetchedImages) { photo ->
                 Box(
@@ -78,6 +93,9 @@ fun SelectImageView(viewState: AddRoomViewState, viewEvent:(AddRoomEvent) -> Uni
                                 }
                             }
 
+                        },
+                        onError = {
+                            println(it.result.throwable.toString() + " fscxcccdfsdfsdf")
                         }
                     )
                     if(viewState.selectedImage == photo){
@@ -95,11 +113,13 @@ fun SelectImageView(viewState: AddRoomViewState, viewEvent:(AddRoomEvent) -> Uni
                 }
             }
         }
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(25.dp))
         Button(
             onClick = {
                 viewEvent(AddRoomEvent.ContinueClicked)
-            }
+            },
+            modifier = Modifier.fillMaxWidth().height(50.dp),
+            shape = RoundedCornerShape(6.dp)
         ){
             Text("Continue")
         }

@@ -59,7 +59,9 @@ fun RoomsView(
         refreshTriggerDistance = 130.dp,
         modifier = Modifier.fillMaxSize()
     ) {
-        Column {
+        Column(
+            modifier = Modifier.fillMaxWidth().background(Color.White)
+        ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
