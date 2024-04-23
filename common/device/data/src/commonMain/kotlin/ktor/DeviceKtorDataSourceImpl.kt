@@ -31,7 +31,7 @@ class DeviceKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.body()
@@ -47,7 +47,7 @@ class DeviceKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.body()
@@ -63,7 +63,7 @@ class DeviceKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.bodyAsText()
@@ -79,7 +79,7 @@ class DeviceKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
     }
@@ -94,7 +94,7 @@ class DeviceKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.body()
@@ -110,7 +110,7 @@ class DeviceKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
     }

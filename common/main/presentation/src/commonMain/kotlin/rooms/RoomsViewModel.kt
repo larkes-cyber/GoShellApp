@@ -73,6 +73,7 @@ class RoomsViewModel:BaseSharedViewModel<RoomViewState, RoomAction, RoomEvent>(
                         val devices = deviceRepository
                             .fetchRoomDevices(room.id!!)
                             .map { it.icon ?: "" }
+                        println(devices.toString() + " BCVBVVVVV")
                         RoomWithDevices(
                             devices = devices,
                             image = room.image,

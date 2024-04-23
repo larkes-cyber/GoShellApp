@@ -46,7 +46,7 @@ class RoomKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.body()
@@ -61,7 +61,7 @@ class RoomKtorDataSourceImpl(
             }
         }
         if(response.status.isSuccess().not()){
-            val error = response.bodyAsText()
+            val error = response.status.description
             throw Exception(error)
         }
         return response.body()

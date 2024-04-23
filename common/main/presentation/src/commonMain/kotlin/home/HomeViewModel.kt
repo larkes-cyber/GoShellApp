@@ -39,7 +39,7 @@ class HomeViewModel:BaseSharedViewModel<HomeViewState, HomeAction, HomeEvent>(
                     homeDevices = deviceRepository.fetchHomeDevices()
                 )
             }catch (e:Exception){
-                println(e.toString())
+                println(e.toString() + " vbvbbbbbb")
             }
         }
 
