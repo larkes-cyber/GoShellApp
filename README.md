@@ -109,3 +109,11 @@ https://github.com/larkes-cyber/GoShellApp/assets/79082708/85136066-41d0-4b72-86
 ### Fetching room view model [link](https://github.com/larkes-cyber/GoShellApp/blob/main/common/main/presentation/src/commonMain/kotlin/rooms/RoomsViewModel.kt)
 <img width="755" alt="image" src="https://github.com/larkes-cyber/GoShellApp/assets/79082708/ffd6c32d-15bd-47ab-a3d1-9a6925374a44">
 
+## Modal view
+
+### Screencast [link](https://github.com/larkes-cyber/GoShellApp/tree/main/common/room/compose/src/androidMain/kotlin/modal/add_room)
+https://github.com/larkes-cyber/GoShellApp/assets/79082708/8a1dc0fb-8e9c-447f-aac8-47ebc8cc707a
+
+
+
+
