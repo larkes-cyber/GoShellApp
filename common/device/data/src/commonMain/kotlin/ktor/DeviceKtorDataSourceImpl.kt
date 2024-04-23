@@ -90,7 +90,6 @@ class DeviceKtorDataSourceImpl(
             url {
                 header("Authorization", "Bearer ${tokenDTO.token}")
                 path(DeviceKtorDataSource.FETCH_HOME_DEVICES)
-                setBody(tokenDTO)
             }
         }
         if(response.status.isSuccess().not()){

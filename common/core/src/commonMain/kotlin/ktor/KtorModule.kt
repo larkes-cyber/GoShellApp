@@ -23,7 +23,7 @@ internal val ktorModule = module {
                 requestTimeoutMillis = 10000
             }
             defaultRequest {
-                url("http://10.0.33.119:8080")
+                url("http://10.0.46.245:8080")
             }
         }
     }
