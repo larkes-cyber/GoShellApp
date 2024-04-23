@@ -3,12 +3,12 @@
 Go shell app is application that helps you to controll your home.
 
 ## Features:
-- ### Multi-module architecture
-- JWT Authorization
-- Сaching
-- Pagination
-- Modal view
-- Fullstack app
+- #### Multi-module architecture
+- #### JWT Authorization
+- #### Сaching
+- #### Pagination
+- #### Modal view
+- #### Fullstack app
 
 ## Multi-module architecture
 
